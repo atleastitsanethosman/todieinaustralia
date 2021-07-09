@@ -28,11 +28,14 @@ app.use(session(sess));
 
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
+app.set("views", "views"); //?
+app.set('view engine', 'hbs');
 
-app.use(express.json());
+//basic express configuration
+app.use(express.json()); //parse all incoming json data
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));//telling express to gain all access inside of public folder
+
 
 app.use(routes);
 
