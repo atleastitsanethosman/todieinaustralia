@@ -12,12 +12,12 @@ Submission.belongsTo(User, {
 });
 
 Submission.hasMany(Comment, {
-  foreignKey: 'post_id',
+  foreignKey: 'submission_id',
   onDelete: 'CASCADE'
 });
 
 Comment.belongsTo(Submission, {
-  foreignKey: 'post_id',
+  foreignKey: 'submission_id',
   onDelete: 'CASCADE'
 });
 
