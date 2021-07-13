@@ -31,7 +31,7 @@ Submission.init(
       defaultValue: DataTypes.NOW,
     },
     score: {
-      type: DataTypes.DECIMAL(1,2)
+      type: DataTypes.DECIMAL(5,2)
     },
     user_id: {
       type: DataTypes.INTEGER,
