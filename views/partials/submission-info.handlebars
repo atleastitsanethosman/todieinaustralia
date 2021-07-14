@@ -14,13 +14,14 @@
 
     <div class="card-content">
         <div class="content has-text-justified">
-            {{post_content}}
+            {{text}}
         </div>
             <div class="is-pulled-right">
-                <b>{{user.username}}</b> | 
-                <a href="https://twitter.com/{{user.twitter}}"><i class="fab fa-twitter"></i></a> 
-                <a href="https://github.com/{{user.github}}"><i class="fab fa-github"></i></a>
-                 | {{format_date created_at}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+                <b>{{user.name}}</b> | 
+                {{!-- <a href="https://twitter.com/{{user.twitter}}"><i class="fab fa-twitter"></i></a> 
+                <a href="https://github.com/{{user.github}}"><i class="fab fa-github"></i></a> --}}
+                 | {{format_date date_created}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural  comments.length}}</a>
             </div>
         
     </div>
+</div>
