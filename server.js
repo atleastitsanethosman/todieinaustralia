@@ -28,8 +28,8 @@ app.use(session(sess));
 
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
-app.set("views", "views"); //?
-app.set('view engine', 'hbs');
+app.set("views", "views");
+app.set('view engine', 'handlebars');
 
 //basic express configuration
 app.use(express.json()); //parse all incoming json data
