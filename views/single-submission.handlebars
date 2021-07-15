@@ -1,5 +1,5 @@
 <!-- displaying articles -->
-{{> post-info post}}
+{{> submission-info}}
 
 <!-- displaying form and comments-->
 <!-- only display if logged in -->
@@ -16,7 +16,7 @@
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+{{> comments comments}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
