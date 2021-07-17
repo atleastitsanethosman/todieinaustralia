@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const { Submission, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const upload = require('../../utils/upload');
+const singleUpload = upload.single("image");
 
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
 try {
     const newSubmission = await Submission.create({
     ...req.body,
@@ -11,18 +13,40 @@ try {
     });
 
     res.status(200).json(newSubmission);
-} catch (err) {
+    } catch (err) {
     res.status(400).json(err);
-}
+    }
 });
 
-router.put('/:id', (req, res) => {
+//route to send image to AWS S3 using multer by calling upload
+router.post("/img", function (req, res) {
+    singleUpload(req, res, function (err) {
+      if (err) {
+        return res.json({
+          success: false,
+          errors: {
+            title: "Image Upload Error",
+            detail: err.message,
+            error: err,
+          },
+        });
+      }
+  
+      let update = { img_link: req.file.location };
+  
+      console.log(update)
+      res.status(200).json(update)
+    });
+  });
+
+
+router.put('/:id', withAuth, (req, res) => {
     Submission.update(req.body, {where: {id: req.params.id}}).then((updatedSubmission) => res.json(updatedSubmission)).catch((err) => {
         res.status(400).json(err)
     })
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
 try {
     const submissionData = await Submission.destroy({
     where: {
