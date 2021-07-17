@@ -7,12 +7,17 @@
   <title>To Die In Australia</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Uchen&display=swap" rel="stylesheet">
+{{!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> --}}
+<script src="https://kit.fontawesome.com/69eb628545.js" crossorigin="anonymous"></script>
+  
 </head>
 
   <div class="wrapper">
     <header>
-        <h1 class="has-text-black px-3 py-3 has-text-weight-bold">To Die in Australia</h1>
+        <h1 class="logo">To Die in Australia <span class="fas fa-book-dead"></span> </h1> 
         <nav class="navbar mt-2">
             {{#if logged_in}}
             <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
@@ -24,7 +29,11 @@
             <a href="/login" class="button is-primary">login</a>
             {{/if}}
         </nav>
+        
     </header>
+    <div class="sub-header"> 
+      <p>Australia is home to over 100 species of animals that can and probably want to kill you. Here at ToDieInAustralia, we want to hear which animal you’re most afraid of sending you to your maker next time you find yourself in the land down under. Sign up to share your Ozzie fears!</p>
+    </div>
 
     <main>
             {{{ body }}}
@@ -37,22 +46,27 @@
             <a href="/dashboard/">dashboard</a> | 
             <a href="/dashboard/create/">create new post</a>
             {{else}}
-             | <a href="/login/">login</a>
+             | <a href="/login">login</a>
             {{/if}}
             </p>
+            
         </div>
       <div class="row-is-full content has-text-centered">
     <p>
-      <strong>created by</strong> | <a href="https://github.com/oljapriya">Team Australia</a> | made with <a href="https://bulma.io/">bulma</a> | source code:
-      <a href="https://github.com/oljapriya/mvc_tech_blog"><i class="fab fa-github"></i></a>
+      <strong>NOT created by</strong> <a href="https://www.newzealand.com/">New Zealand Department of Tourism</a> | made with <a href="https://bulma.io/">bulma</a> | source code:
+      <a href="https://github.com/atleastitsanethosman/todieinaustralia"><i class="fab fa-github"></i></a>
     </p>
   </div>
     </footer>
   </div>
 
+
+
 {{#if logged_in}}
 <script src="/javascript/logout.js"></script>
 {{/if}}
+
 </body>
+
 
 </html>

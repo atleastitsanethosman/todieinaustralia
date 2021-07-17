@@ -98,7 +98,7 @@ main {
   color: #3486eb;
 }
 
-.delete-post-btn {
+.button.is-danger {
   background-color: #d41414;
 }
 
@@ -161,4 +161,14 @@ footer {
 .rows{
     display:flex;
     flex-direction: column;
+}
+
+.sub-header{
+  text-align: center;
+  font-family: 'Uchen', serif;
+}
+
+.logo{
+  font-size: large;
+  font-weight: bolder;
 }
