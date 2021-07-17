@@ -27,7 +27,9 @@ async function newFormHandler(event) {
   const img_link = imageUpload.img_link.toString();
   const title = document.querySelector('input[name="post-title"]').value;
   const text = document.querySelector('input[name="post-content"]').value;
-  const category = "temporary"
+  // const categoryList = document.getElementById("#category").text;
+  category = "temporary"
+  console.log(categoryList);
   
   const response = await fetch(`/api/Submission-routes`, {
     method: 'POST',
