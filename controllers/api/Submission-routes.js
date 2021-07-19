@@ -2,7 +2,10 @@ const router = require('express').Router();
 const { Submission, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const upload = require('../../utils/upload');
+const remove = require('../../utils/remove')
 const singleUpload = upload.single("image");
+const aws = require("aws-sdk");
+
 
 
 router.post('/', withAuth, async (req, res) => {
@@ -44,6 +47,13 @@ router.put('/:id', withAuth, (req, res) => {
     Submission.update(req.body, {where: {id: req.params.id}}).then((updatedSubmission) => res.json(updatedSubmission)).catch((err) => {
         res.status(400).json(err)
     })
+})
+
+//route specific to delete image from AWS s3 storage.
+router.delete('/s3/:imgKey', withAuth, (req, res) => {
+  remove(req.params.imgKey).then((updatedSubmission) => res.json(updatedSubmission)).catch((err) => {
+    res.status(400).json(err)
+  })
 })
 
 router.delete('/:id', withAuth, async (req, res) => {
